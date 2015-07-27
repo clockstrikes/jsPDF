@@ -2,7 +2,7 @@
   "name": "jspdf",
   "version": "0.9.1",
   "description": "PDF Document creation from JavaScript",
-  "main": "dist/jspdf.min.js",
+  "main": "dist/jspdf.amd.min.js",
   "directories": {
     "doc": "doc",
     "example": "examples",
