@@ -1,0 +1,20 @@
+{
+  "name": "jspdf",
+  "version": "0.9.1",
+  "description": "PDF Document creation from JavaScript",
+  "main": "dist/jspdf.min.js",
+  "directories": {
+    "doc": "doc",
+    "example": "examples",
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MrRio/jsPDF.git"
+  },
+  "keywords": [
+    "pdf"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/MrRio/jsPDF"
+}
