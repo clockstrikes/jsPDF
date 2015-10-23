@@ -1886,7 +1886,7 @@ Examples:
 
     return jsPDF;
 }());
-/** @preserve 
+/** @preserve
 jsPDF addImage plugin (JPEG only at this time)
 Copyright (c) 2012 https://github.com/siefkenj/
 */
@@ -1899,10 +1899,10 @@ Copyright (c) 2012 https://github.com/siefkenj/
  * distribute, sublicense, and/or sell copies of the Software, and to
  * permit persons to whom the Software is furnished to do so, subject to
  * the following conditions:
- * 
+ *
  * The above copyright notice and this permission notice shall be
  * included in all copies or substantial portions of the Software.
- * 
+ *
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
  * EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
  * MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
@@ -2050,7 +2050,7 @@ jsPDFAPI.addImage = function(imageData, format, x, y, w, h) {
 
 	if (images){
 		// this is NOT the first time this method is ran on this instance of jsPDF object.
-		imageIndex = Object.keys ? 
+		imageIndex = Object.keys ?
 		Object.keys(images).length :
 		(function(o){
 			var i = 0
@@ -2106,7 +2106,7 @@ jsPDFAPI.addImage = function(imageData, format, x, y, w, h) {
 		, 'Do Q'
 	)
 
-	return this 
+	return this
 }
 })(jsPDF.API)
 /** @preserve
@@ -2121,10 +2121,10 @@ Copyright (c) 2012 2012 Willow Systems Corporation, willow-systems.com
  * distribute, sublicense, and/or sell copies of the Software, and to
  * permit persons to whom the Software is furnished to do so, subject to
  * the following conditions:
- * 
+ *
  * The above copyright notice and this permission notice shall be
  * included in all copies or substantial portions of the Software.
- * 
+ *
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
  * EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
  * MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
@@ -2286,7 +2286,7 @@ Renderer.prototype.splitFragmentsIntoLines = function(fragments, styles){
 
 				// // these should not matter as we provide the metrics manually
 				// // if we would not, we would need these:
-				// , 'fontName': style.fontName 
+				// , 'fontName': style.fontName
 				// , 'fontStyle': style.fontStyle
 
 				// this is setting for "indent first line of paragraph", but we abuse it
@@ -2305,7 +2305,7 @@ Renderer.prototype.splitFragmentsIntoLines = function(fragments, styles){
 
 			if (currentLineLength + fragmentLength > maxLineLength) {
 				// whatever is already on the line + this new fragment
-				// will be longer than max len for a line. 
+				// will be longer than max len for a line.
 				// Hence, chopping fragment into lines:
 				fragmentChopped = this.pdf.splitTextToSize(
 					fragment
@@ -2370,14 +2370,14 @@ Renderer.prototype.renderParagraph = function(){
 	, fontToUnitRatio = defaultFontSize / this.pdf.internal.scaleFactor
 
 	// these will be in pdf instance units
-	, paragraphspacing_before = ( 
+	, paragraphspacing_before = (
 		// we only use margin-top potion that is larger than margin-bottom of previous elem
 		// because CSS margins don't stack, they overlap.
-		Math.max( ( blockstyle['margin-top'] || 0 ) - ( priorblockstype['margin-bottom'] || 0 ), 0 ) + 
-		( blockstyle['padding-top'] || 0 ) 
+		Math.max( ( blockstyle['margin-top'] || 0 ) - ( priorblockstype['margin-bottom'] || 0 ), 0 ) +
+		( blockstyle['padding-top'] || 0 )
 	) * fontToUnitRatio
-	, paragraphspacing_after = ( 
-		( blockstyle['margin-bottom'] || 0 ) + ( blockstyle['padding-bottom'] || 0 ) 
+	, paragraphspacing_after = (
+		( blockstyle['margin-bottom'] || 0 ) + ( blockstyle['padding-bottom'] || 0 )
 	) * fontToUnitRatio
 
 	, out = this.pdf.internal.write
@@ -2414,7 +2414,7 @@ Renderer.prototype.renderParagraph = function(){
 			, (-1 * defaultFontSize * maxLineHeight).toFixed(2) // shifting down a line in native `points' means reducing y coordinate
 			, 'Td'
 			// , (defaultFontSize * maxLineHeight).toFixed(2) // line height comes as float = proportion to normal.
-			// , 'TL' // line height marker. Not sure we need it with "Td", but... 
+			// , 'TL' // line height marker. Not sure we need it with "Td", but...
 		)
 
 		for (i = 0, l = line.length; i !== l; i++) {
@@ -2426,7 +2426,7 @@ Renderer.prototype.renderParagraph = function(){
 		// y is in user units (cm, inch etc)
 		// maxLineHeight is ratio of defaultFontSize
 		// defaultFontSize is in points always.
-		// this.internal.scaleFactor is ratio of user unit to points. 
+		// this.internal.scaleFactor is ratio of user unit to points.
 		// Dividing by it converts points to user units.
 		// vertical offset will be in user units.
 		// this.y is in user units.
@@ -2480,7 +2480,7 @@ function ResolveFont(css_font_family_string){
 		name = FontNameDB[ part.trim().toLowerCase() ]
 		part = parts.shift()
 	}
-	return name 
+	return name
 }
 
 // return ratio to "normal" font size. in other words, it's fraction of 16 pixels.
@@ -2641,7 +2641,7 @@ function process(pdf, element, x, y, settings) {
 				'clip: rect(1px, 1px, 1px, 1px);' +
 				'padding:0 !important;' +
 				'border:0 !important;' +
-				'height: 1px !important;' + 
+				'height: 1px !important;' +
 				'width: 1px !important; ' +
 				'top:auto;' +
 				'left:-100px;' +
@@ -2694,11 +2694,11 @@ jsPDFAPI.fromHTML = function(HTML, x, y, settings) {
 	// you don't need to look into `this.internal`
 	// See _jsPDF object in jspdf.js for complete list of what's available to you.
 
-	// it is good practice to return ref to jsPDF instance to make 
-	// the calls chainable. 
+	// it is good practice to return ref to jsPDF instance to make
+	// the calls chainable.
 	// return this
 
-	// but in this case it is more usefull to return some stats about what we rendered. 
+	// but in this case it is more usefull to return some stats about what we rendered.
 	return process(this, HTML, x, y, settings)
 }
 
@@ -2715,10 +2715,10 @@ Copyright (c) 2012 Willow Systems Corporation, willow-systems.com
  * distribute, sublicense, and/or sell copies of the Software, and to
  * permit persons to whom the Software is furnished to do so, subject to
  * the following conditions:
- * 
+ *
  * The above copyright notice and this permission notice shall be
  * included in all copies or substantial portions of the Software.
- * 
+ *
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
  * EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
  * MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
@@ -2783,7 +2783,7 @@ jsPDFAPI.addSVG = function(svgtext, x, y, w, h) {
 		frame.setAttribute("scrolling", "no")
 		frame.setAttribute("seamless", "seamless")
 		frame.setAttribute("class", "jsPDF_sillysvg_iframe")
-		
+
 		document.body.appendChild(frame)
 
 		return frame
@@ -2845,8 +2845,8 @@ jsPDFAPI.addSVG = function(svgtext, x, y, w, h) {
 		// this may distort the image, but fits your demanded size
 		if (w && h) {
 			scale = [w / svgw, h / svgh]
-		} 
-		// if only one is set, that value is set as max and SVG 
+		}
+		// if only one is set, that value is set as max and SVG
 		// is scaled proportionately.
 		else if (w) {
 			scale = [w / svgw, w / svgw]
@@ -2884,7 +2884,7 @@ jsPDFAPI.addSVG = function(svgtext, x, y, w, h) {
 }
 
 })(jsPDF.API)
-/** @preserve 
+/** @preserve
 jsPDF split_text_to_size plugin
 Copyright (c) 2012 Willow Systems Corporation, willow-systems.com
 MIT license.
@@ -2897,10 +2897,10 @@ MIT license.
  * distribute, sublicense, and/or sell copies of the Software, and to
  * permit persons to whom the Software is furnished to do so, subject to
  * the following conditions:
- * 
+ *
  * The above copyright notice and this permission notice shall be
  * included in all copies or substantial portions of the Software.
- * 
+ *
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
  * EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
  * MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
@@ -2934,7 +2934,7 @@ var getCharWidthsArray = API.getCharWidthsArray = function(text, options){
 	, widthsFractionOf = widths.fof ? widths.fof : 1
 	, kerning = options.kerning ? options.kerning : this.internal.getFont().metadata.Unicode.kerning
 	, kerningFractionOf = kerning.fof ? kerning.fof : 1
-	
+
 	// console.log("widths, kergnings", widths, kerning)
 
 	var i, l
@@ -2947,7 +2947,7 @@ var getCharWidthsArray = API.getCharWidthsArray = function(text, options){
 	for (i = 0, l = text.length; i < l; i++) {
 		char_code = text.charCodeAt(i)
 		output.push(
-			( widths[char_code] || default_char_width ) / widthsFractionOf + 
+			( widths[char_code] || default_char_width ) / widthsFractionOf +
 			( kerning[char_code] && kerning[char_code][prior_char_code] || 0 ) / kerningFractionOf
 		)
 		prior_char_code = char_code
@@ -2982,7 +2982,7 @@ var getStringUnitWidth = API.getStringUnitWidth = function(text, options) {
 	return getArraySum(getCharWidthsArray.call(this, text, options))
 }
 
-/** 
+/**
 returns array of lines
 */
 var splitLongWord = function(word, widths_array, firstLineMaxLen, maxLen){
@@ -3132,7 +3132,7 @@ API.splitTextToSize = function(text, maxlen, options) {
 			return 	{
 				widths: options.widths
 				, kerning: options.kerning
-			}			
+			}
 		}
 
 		// then use default values
@@ -3143,7 +3143,7 @@ API.splitTextToSize = function(text, maxlen, options) {
 	}).call(this, options)
 
 	// first we split on end-of-line chars
-	var paragraphs 
+	var paragraphs
 	if (text.match(/[\n\r]/)) {
 		paragraphs = text.split(/\r\n|\r|\n/g)
 	} else {
@@ -3158,12 +3158,12 @@ API.splitTextToSize = function(text, maxlen, options) {
 	// this may change in the future?
 	// until then, proportional_maxlen is likely to be in 'points'
 
-	// If first line is to be indented (shorter or longer) than maxLen 
+	// If first line is to be indented (shorter or longer) than maxLen
 	// we indicate that by using CSS-style "text-indent" option.
 	// here it's in font units too (which is likely 'points')
 	// it can be negative (which makes the first line longer than maxLen)
-	newOptions.textIndent = options.textIndent ? 
-		options.textIndent * 1.0 * this.internal.scaleFactor / fsize : 
+	newOptions.textIndent = options.textIndent ?
+		options.textIndent * 1.0 * this.internal.scaleFactor / fsize :
 		0
 
 	var i, l
@@ -3178,11 +3178,11 @@ API.splitTextToSize = function(text, maxlen, options) {
 		)
 	}
 
-	return output 
+	return output
 }
 
 })(jsPDF.API);
-/** @preserve 
+/** @preserve
 jsPDF standard_fonts_metrics plugin
 Copyright (c) 2012 Willow Systems Corporation, willow-systems.com
 MIT license.
@@ -3195,10 +3195,10 @@ MIT license.
  * distribute, sublicense, and/or sell copies of the Software, and to
  * permit persons to whom the Software is furnished to do so, subject to
  * the following conditions:
- * 
+ *
  * The above copyright notice and this permission notice shall be
  * included in all copies or substantial portions of the Software.
- * 
+ *
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
  * EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
  * MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
@@ -3248,7 +3248,7 @@ def compress(data):
 				raise Exception("Don't know what to do with value type %s" % type(value))
 
 		vals.append(keystring+valuestring)
-	
+
 	return '{' + ''.join(vals) + '}'
 
 def uncompress(data):
@@ -3341,7 +3341,7 @@ def uncompress(data):
 */
 
 /**
-Uncompresses data compressed into custom, base16-like format. 
+Uncompresses data compressed into custom, base16-like format.
 @public
 @function
 @param
@@ -3361,7 +3361,7 @@ var uncompress = function(data){
 	, output = {}
 	, sign = 1
 	, stringparts // undef. will be [] in string mode
-	
+
 	, activeobject = output
 	, parentchain = []
 	, parent_key_pair
@@ -3372,7 +3372,7 @@ var uncompress = function(data){
 	, ch
 
 	i = 1 // stripping starting {
-	
+
 	while (i != datalen){
 		// - { } ' are special.
 
@@ -3383,10 +3383,10 @@ var uncompress = function(data){
 			if (stringparts){
 				// end of string mode
 				key = stringparts.join('')
-				stringparts = undef				
+				stringparts = undef
 			} else {
 				// start of string mode
-				stringparts = []				
+				stringparts = []
 			}
 		} else if (stringparts){
 			stringparts.push(ch)
@@ -3422,7 +3422,7 @@ var uncompress = function(data){
 					key = undef
 					valueparts = ''
 				} else {
-					valueparts += ch					
+					valueparts += ch
 				}
 			}
 		}
@@ -3431,7 +3431,7 @@ var uncompress = function(data){
 	return output
 }
 
-// encoding = 'Unicode' 
+// encoding = 'Unicode'
 // NOT UTF8, NOT UTF16BE/LE, NOT UCS2BE/LE. NO clever BOM behavior
 // Actual 16bit char codes used.
 // no multi-byte logic here
@@ -3440,8 +3440,8 @@ var uncompress = function(data){
 // {402: 131, 8211: 150, 8212: 151, 8216: 145, 8217: 146, 8218: 130, 8220: 147, 8221: 148, 8222: 132, 8224: 134, 8225: 135, 8226: 149, 8230: 133, 8364: 128, 8240:137, 8249: 139, 8250: 155, 710: 136, 8482: 153, 338: 140, 339: 156, 732: 152, 352: 138, 353: 154, 376: 159, 381: 142, 382: 158}
 // as you can see, all Unicode chars are outside of 0-255 range. No char code conflicts.
 // this means that you can give Win cp1252 encoded strings to jsPDF for rendering directly
-// as well as give strings with some (supported by these fonts) Unicode characters and 
-// these will be mapped to win cp1252 
+// as well as give strings with some (supported by these fonts) Unicode characters and
+// these will be mapped to win cp1252
 // for example, you can send char code (cp1252) 0x80 or (unicode) 0x20AC, getting "Euro" glyph displayed in both cases.
 
 var encodingBlock = {
@@ -3464,7 +3464,7 @@ var encodingBlock = {
 //	, 'Symbol'
 //	, 'ZapfDingbats'
 }}
-/** 
+/**
 Resources:
 Font metrics data is reprocessed derivative of contents of
 "Font Metrics for PDF Core 14 Fonts" package, which exhibits the following copyright and license:
@@ -3517,7 +3517,7 @@ char codes to StandardEncoding character codes. The encoding table is to be used
 somewhere around "pdfEscape" call.
 */
 
-API.events.push([ 
+API.events.push([
 	'addFonts'
 	,function(fontManagementObjects) {
 		// fontManagementObjects is {
@@ -3580,7 +3580,7 @@ API.events.push([
 /* BlobBuilder.js
  * A BlobBuilder implementation.
  * 2012-04-21
- * 
+ *
  * By Eli Grey, http://eligrey.com
  * License: X11/MIT
  *   See LICENSE.md
@@ -3628,7 +3628,7 @@ var
 	, can_apply_typed_arrays_test = function(pass) {
 		can_apply_typed_arrays = !pass;
 	}
-	
+
 	, ArrayBuffer = view.ArrayBuffer
 	, Uint8Array = view.Uint8Array
 ;
@@ -3740,61 +3740,63 @@ return FakeBlobBuilder;
 }(self));
 /* FileSaver.js
  * A saveAs() FileSaver implementation.
- * 2013-01-23
- * 
+ * 1.1.20151003
+ *
  * By Eli Grey, http://eligrey.com
- * License: X11/MIT
- *   See LICENSE.md
+ * License: MIT
+ *   See https://github.com/eligrey/FileSaver.js/blob/master/LICENSE.md
  */
 
 /*global self */
-/*jslint bitwise: true, regexp: true, confusion: true, es5: true, vars: true, white: true,
-  plusplus: true */
+/*jslint bitwise: true, indent: 4, laxbreak: true, laxcomma: true, smarttabs: true, plusplus: true */
 
 /*! @source http://purl.eligrey.com/github/FileSaver.js/blob/master/FileSaver.js */
 
-var saveAs = saveAs
-  || (navigator.msSaveBlob && navigator.msSaveBlob.bind(navigator))
-  || (function(view) {
+var saveAs = saveAs || (function(view) {
 	"use strict";
+	// IE <10 is explicitly unsupported
+	if (typeof navigator !== "undefined" && /MSIE [1-9]\./.test(navigator.userAgent)) {
+		return;
+	}
 	var
 		  doc = view.document
-		  // only get URL when necessary in case BlobBuilder.js hasn't overridden it yet
+		  // only get URL when necessary in case Blob.js hasn't overridden it yet
 		, get_URL = function() {
 			return view.URL || view.webkitURL || view;
 		}
-		, URL = view.URL || view.webkitURL || view
 		, save_link = doc.createElementNS("http://www.w3.org/1999/xhtml", "a")
 		, can_use_save_link = "download" in save_link
 		, click = function(node) {
-			var event = doc.createEvent("MouseEvents");
-			event.initMouseEvent(
-				"click", true, false, view, 0, 0, 0, 0, 0
-				, false, false, false, false, 0, null
-			);
-			return node.dispatchEvent(event); // false if event was cancelled
+			var event = new MouseEvent("click");
+			node.dispatchEvent(event);
 		}
+		, is_safari = /Version\/[\d\.]+.*Safari/.test(navigator.userAgent)
 		, webkit_req_fs = view.webkitRequestFileSystem
 		, req_fs = view.requestFileSystem || webkit_req_fs || view.mozRequestFileSystem
-		, throw_outside = function (ex) {
+		, throw_outside = function(ex) {
 			(view.setImmediate || view.setTimeout)(function() {
 				throw ex;
 			}, 0);
 		}
 		, force_saveable_type = "application/octet-stream"
 		, fs_min_size = 0
-		, deletion_queue = []
-		, process_deletion_queue = function() {
-			var i = deletion_queue.length;
-			while (i--) {
-				var file = deletion_queue[i];
+		// See https://code.google.com/p/chromium/issues/detail?id=375297#c7 and
+		// https://github.com/eligrey/FileSaver.js/commit/485930a#commitcomment-8768047
+		// for the reasoning behind the timeout and revocation flow
+		, arbitrary_revoke_timeout = 500 // in ms
+		, revoke = function(file) {
+			var revoker = function() {
 				if (typeof file === "string") { // file is an object URL
-					URL.revokeObjectURL(file);
+					get_URL().revokeObjectURL(file);
 				} else { // file is a File
 					file.remove();
 				}
+			};
+			if (view.chrome) {
+				revoker();
+			} else {
+				setTimeout(revoker, arbitrary_revoke_timeout);
 			}
-			deletion_queue.length = 0; // clear queue
 		}
 		, dispatch = function(filesaver, event_types, event) {
 			event_types = [].concat(event_types);
@@ -3810,7 +3812,17 @@ var saveAs = saveAs
 				}
 			}
 		}
-		, FileSaver = function(blob, name) {
+		, auto_bom = function(blob) {
+			// prepend BOM for UTF-8 XML and text/* types (including HTML)
+			if (/^\s*(?:text\/\S*|application\/xml|\S*\/\S*\+xml)\s*;.*charset\s*=\s*utf-8/i.test(blob.type)) {
+				return new Blob(["\ufeff", blob], {type: blob.type});
+			}
+			return blob;
+		}
+		, FileSaver = function(blob, name, no_auto_bom) {
+			if (!no_auto_bom) {
+				blob = auto_bom(blob);
+			}
 			// First try a.download, then web filesystem, then object URLs
 			var
 				  filesaver = this
@@ -3818,25 +3830,40 @@ var saveAs = saveAs
 				, blob_changed = false
 				, object_url
 				, target_view
-				, get_object_url = function() {
-					var object_url = get_URL().createObjectURL(blob);
-					deletion_queue.push(object_url);
-					return object_url;
-				}
 				, dispatch_all = function() {
 					dispatch(filesaver, "writestart progress write writeend".split(" "));
 				}
 				// on any filesys errors revert to saving with object URLs
 				, fs_error = function() {
+					if (target_view && is_safari && typeof FileReader !== "undefined") {
+						// Safari doesn't allow downloading of blob urls
+						var reader = new FileReader();
+						reader.onloadend = function() {
+							var base64Data = reader.result;
+							target_view.location.href = "data:attachment/file" + base64Data.slice(base64Data.search(/[,;]/));
+							filesaver.readyState = filesaver.DONE;
+							dispatch_all();
+						};
+						reader.readAsDataURL(blob);
+						filesaver.readyState = filesaver.INIT;
+						return;
+					}
 					// don't create more object URLs than needed
 					if (blob_changed || !object_url) {
-						object_url = get_object_url(blob);
+						object_url = get_URL().createObjectURL(blob);
 					}
 					if (target_view) {
 						target_view.location.href = object_url;
+					} else {
+						var new_tab = view.open(object_url, "_blank");
+						if (new_tab == undefined && is_safari) {
+							//Apple do not allow window.open, see http://bit.ly/1kZffRI
+							view.location.href = object_url
+						}
 					}
 					filesaver.readyState = filesaver.DONE;
 					dispatch_all();
+					revoke(object_url);
 				}
 				, abortable = function(func) {
 					return function() {
@@ -3853,18 +3880,22 @@ var saveAs = saveAs
 				name = "download";
 			}
 			if (can_use_save_link) {
-				object_url = get_object_url(blob);
+				object_url = get_URL().createObjectURL(blob);
 				save_link.href = object_url;
 				save_link.download = name;
-				if (click(save_link)) {
-					filesaver.readyState = filesaver.DONE;
+				setTimeout(function() {
+					click(save_link);
 					dispatch_all();
-					return;
-				}
+					revoke(object_url);
+					filesaver.readyState = filesaver.DONE;
+				});
+				return;
 			}
 			// Object and web filesystem URLs have a problem saving in Google Chrome when
 			// viewed in a tab, so I force save with application/octet-stream
 			// http://code.google.com/p/chromium/issues/detail?id=91158
+			// Update: Google errantly closed 91158, I submitted it again:
+			// https://code.google.com/p/chromium/issues/detail?id=389642
 			if (view.chrome && type && type !== force_saveable_type) {
 				slice = blob.slice || blob.webkitSlice;
 				blob = slice.call(blob, 0, blob.size, force_saveable_type);
@@ -3878,8 +3909,6 @@ var saveAs = saveAs
 			}
 			if (type === force_saveable_type || webkit_req_fs) {
 				target_view = view;
-			} else {
-				target_view = view.open();
 			}
 			if (!req_fs) {
 				fs_error();
@@ -3893,9 +3922,9 @@ var saveAs = saveAs
 							file.createWriter(abortable(function(writer) {
 								writer.onwriteend = function(event) {
 									target_view.location.href = file.toURL();
-									deletion_queue.push(file);
 									filesaver.readyState = filesaver.DONE;
 									dispatch(filesaver, "writeend", event);
+									revoke(file);
 								};
 								writer.onerror = function() {
 									var error = writer.error;
@@ -3930,10 +3959,20 @@ var saveAs = saveAs
 			}), fs_error);
 		}
 		, FS_proto = FileSaver.prototype
-		, saveAs = function(blob, name) {
-			return new FileSaver(blob, name);
+		, saveAs = function(blob, name, no_auto_bom) {
+			return new FileSaver(blob, name, no_auto_bom);
 		}
 	;
+	// IE 10+ (native saveAs)
+	if (typeof navigator !== "undefined" && navigator.msSaveOrOpenBlob) {
+		return function(blob, name, no_auto_bom) {
+			if (!no_auto_bom) {
+				blob = auto_bom(blob);
+			}
+			return navigator.msSaveOrOpenBlob(blob, name || "download");
+		};
+	}
+
 	FS_proto.abort = function() {
 		var filesaver = this;
 		filesaver.readyState = filesaver.DONE;
@@ -3942,7 +3981,7 @@ var saveAs = saveAs
 	FS_proto.readyState = FS_proto.INIT = 0;
 	FS_proto.WRITING = 1;
 	FS_proto.DONE = 2;
-	
+
 	FS_proto.error =
 	FS_proto.onwritestart =
 	FS_proto.onprogress =
@@ -3951,10 +3990,24 @@ var saveAs = saveAs
 	FS_proto.onerror =
 	FS_proto.onwriteend =
 		null;
-	
-	view.addEventListener("unload", process_deletion_queue, false);
+
 	return saveAs;
-}(self));
+}(
+	   typeof self !== "undefined" && self
+	|| typeof window !== "undefined" && window
+	|| this.content
+));
+// `self` is undefined in Firefox for Android content script context
+// while `this` is nsIContentFrameMessageManager
+// with an attribute `content` that corresponds to the window
+
+if (typeof module !== "undefined" && module.exports) {
+  module.exports.saveAs = saveAs;
+} else if ((typeof define !== "undefined" && define !== null) && (define.amd != null)) {
+  define([], function() {
+    return saveAs;
+  });
+}
 /*
  Copyright (c) 2013 Gildas Lormeau. All rights reserved.
 
@@ -3964,8 +4017,8 @@ var saveAs = saveAs
  1. Redistributions of source code must retain the above copyright notice,
  this list of conditions and the following disclaimer.
 
- 2. Redistributions in binary form must reproduce the above copyright 
- notice, this list of conditions and the following disclaimer in 
+ 2. Redistributions in binary form must reproduce the above copyright
+ notice, this list of conditions and the following disclaimer in
  the documentation and/or other materials provided with the distribution.
 
  3. The names of the authors may not be used to endorse or promote products
@@ -5563,7 +5616,7 @@ function Deflate() {
     function deflateReset(strm) {
         strm.total_in = strm.total_out = 0;
         strm.msg = null; //
-        
+
         that.pending = 0;
         that.pending_out = 0;
 
